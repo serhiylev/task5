@@ -4,9 +4,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Logic {
-    private List<Car> cars = new ArrayList<>();
+    private List<Car> cars;
     private Scanner scanner = new Scanner(System.in);
     private Random random = new Random();
+
+    Logic(List<Car> cars) {
+        this.cars = cars;
+    }
 
     void start() {
         add();
