@@ -4,8 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Logic {
-    Scanner scanner = new Scanner(System.in);
-    Random random = new Random();
+    private Scanner scanner = new Scanner(System.in);
+    private Random random = new Random();
     void start() {
         System.out.println("Введіть число від 1 до 6 \n" +
                 "1) Знайти машини, які мають введений діаметр коліс.\n" +
@@ -21,24 +21,24 @@ public class Logic {
 
         switch (scanner.nextInt()) {
             case 1:
-                shov(searchCarWithWheelDiameter());
+                show(searchCarWithWheelDiameter());
                 returnBackToMenu();
                 break;
             case 2:
-                shov(searchCarWithWheelDiameterAndBodyColor());
+                show(searchCarWithWheelDiameterAndBodyColor());
                 returnBackToMenu();
                 break;
             case 3:
-                shov(searchCarWithRedBodyColorAndChangeHelm());
+                show(searchCarWithRedBodyColorAndChangeHelm());
                 returnBackToMenu();
                 break;
             case 4:
-                shov(changeWheelDiameter());
+                show(changeWheelDiameter());
                 returnBackToMenu();
                 break;
             case 5:
                 //Замінити усі машини, які мають колеса діаметром менші за введене значення, на інші машини(на машини з рандомним діаметром коліс).
-                shov(changeCars(scanDiameter()));
+                show(changeCars(scanDiameter()));
                 returnBackToMenu();
                 break;
             case 6:
@@ -65,7 +65,7 @@ public class Logic {
         return Main.cars;
     }
 
-    private void shov(List<Car> cars) {
+    private void show(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(car.toString());
         }
@@ -109,7 +109,7 @@ public class Logic {
     private List<Car> searchCarWithRedBodyColorAndChangeHelm() {
         List<Car> sortCars = new ArrayList<>();
         for (int i = 0; i < Main.cars.size(); i++) {
-            if (Main.cars.get(i).getBodyColor() == "червоний") {
+            if (Main.cars.get(i).getBodyColor().equals("червоний")) {
                 Main.cars.get(i).changeHelm();
             }
         }

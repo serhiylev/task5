@@ -4,22 +4,22 @@ public class CarBuilder {
     private String bodyColor;
     private int diameter;
 
-    public CarBuilder Brand(String brand) {
+    public CarBuilder brand(String brand) {
         this.brand = brand;
         return this;
     }
 
-    public CarBuilder HasButtons(boolean hasButtons) {
+    public CarBuilder hasButtons(boolean hasButtons) {
         this.hasButtons = hasButtons;
         return this;
     }
 
-    public CarBuilder BodyColor(String bodyColor) {
+    public CarBuilder bodyColor(String bodyColor) {
         this.bodyColor = bodyColor;
         return this;
     }
 
-    public CarBuilder Diameter(int diameter) {
+    public CarBuilder diameter(int diameter) {
         this.diameter = diameter;
         return this;
     }

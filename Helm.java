@@ -1,25 +1,11 @@
 public class Helm {//кермо
     private boolean hasButtons;
 
-    public Helm() {
-    }
-
-    Helm(boolean hasButtons) {
-        this.hasButtons = hasButtons;
-    }
-
-    @Override
-    public String toString() {
-        return "hasButtons= " + hasButtons;
+    Helm() {
     }
 
     public void change() {
-        if (hasButtons) {
-            hasButtons = false;
-        } else {
-            hasButtons = true;
-        }
-
+        hasButtons = !hasButtons;
     }
 
     public boolean getHasButtons() {

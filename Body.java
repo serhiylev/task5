@@ -2,11 +2,7 @@ public class Body {//кузов
     private String bodyColor;
 
 
-    public Body() {
-    }
-
-    public Body(String bodyColor) {
-        this.bodyColor = bodyColor;
+    Body() {
     }
 
 

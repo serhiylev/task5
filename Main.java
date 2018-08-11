@@ -3,20 +3,19 @@ import java.util.List;
 
 
 public class Main {
-    public static List<Car> cars = new ArrayList();
+    public static List<Car> cars = new ArrayList<>();
     public static void main(String[] args) {
         Logic logic = new Logic();
-        Car car;
-        cars.add(car = new CarBuilder().BodyColor("зелений").Brand("форд").HasButtons(true).Diameter(10).createCar());
-        cars.add(car = new CarBuilder().BodyColor("червоний").Brand("форд").HasButtons(false).createCar());
-        cars.add(car = new CarBuilder().BodyColor("фіалетовий").Brand("форд").HasButtons(true).createCar());
-        cars.add(car = new CarBuilder().BodyColor("зелений").Brand("форд").HasButtons(false).Diameter(11).createCar());
-        cars.add(car = new CarBuilder().BodyColor("зелений").Brand("форд").HasButtons(true).createCar());
-        cars.add(car = new CarBuilder().BodyColor("червоний").Brand("форд").HasButtons(true).Diameter(21).createCar());
-        cars.add(car = new CarBuilder().BodyColor("жовтий").Brand("форд").HasButtons(false).Diameter(9).createCar());
-        cars.add(car = new CarBuilder().BodyColor("червоний").Brand("форд").HasButtons(false).Diameter(18).createCar());
-        cars.add(car = new CarBuilder().BodyColor("зелений").Brand("форд").HasButtons(true).Diameter(23).createCar());
-        cars.add(car = new CarBuilder().BodyColor("фіолетовий").Brand("форд").HasButtons(true).Diameter(16).createCar());
+        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).diameter(10).createCar());
+        cars.add(new CarBuilder().bodyColor("червоний").brand("форд").hasButtons(false).createCar());
+        cars.add(new CarBuilder().bodyColor("фіалетовий").brand("форд").hasButtons(true).createCar());
+        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(false).diameter(11).createCar());
+        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).createCar());
+        cars.add(new CarBuilder().bodyColor("червоний").brand("форд").hasButtons(true).diameter(21).createCar());
+        cars.add(new CarBuilder().bodyColor("жовтий").brand("форд").hasButtons(false).diameter(9).createCar());
+        cars.add(new CarBuilder().bodyColor("червоний").brand("форд").hasButtons(false).diameter(18).createCar());
+        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).diameter(23).createCar());
+        cars.add(new CarBuilder().bodyColor("фіолетовий").brand("форд").hasButtons(true).diameter(16).createCar());
 
         logic.start();
 

@@ -1,14 +1,8 @@
 public class Wheel {//колесо
     private int diameter = 0;
 
-    public Wheel() {
+    Wheel() {
     }
-
-    public Wheel(int diameter) {
-
-        this.diameter = diameter;
-    }
-
 
     void changeDiameter(int diameter) {
         this.diameter = diameter;
