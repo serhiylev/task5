@@ -3,7 +3,7 @@ import java.util.List;
 
 
 public class Main {
-    public static List<Car> cars = new ArrayList<>();
+    private static List<Car> cars = new ArrayList<>();
     public static void main(String[] args) {
         Logic logic = new Logic();
         cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).diameter(10).createCar());
@@ -17,7 +17,7 @@ public class Main {
         cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).diameter(23).createCar());
         cars.add(new CarBuilder().bodyColor("фіолетовий").brand("форд").hasButtons(true).diameter(16).createCar());
 
-        logic.start();
+        logic.start(cars);
 
 
     }
