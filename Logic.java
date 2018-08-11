@@ -7,7 +7,9 @@ public class Logic {
     private static List<Car> cars = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     private Random random = new Random();
+
     void start() {
+        add();
         System.out.println("Введіть число від 1 до 6 \n" +
                 "1) Знайти машини, які мають введений діаметр коліс.\n" +
                 "2) Знайти машини, які мають введений діаметр коліс та колір кузова.\n" +
@@ -52,27 +54,28 @@ public class Logic {
         }
     }
 
-
-
-
-    private int scanDiameter() {
-        System.out.println("Введіть діаметр\n");
-        return scanner.nextInt();
-    }
-
-    private List<Car> changeCars(int diameter) {
-        for (Car car : cars) {
-            if (car.getDiameterWheel() < diameter) {
-                car.changeDiameterWheel(1 + random.nextInt(50));
-            }
-        }
-        return cars;
+    private void add() {
+        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).diameter(10).createCar());
+        cars.add(new CarBuilder().bodyColor("червоний").brand("форд").hasButtons(false).createCar());
+        cars.add(new CarBuilder().bodyColor("фіалетовий").brand("форд").hasButtons(true).createCar());
+        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(false).diameter(11).createCar());
+        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).createCar());
+        cars.add(new CarBuilder().bodyColor("червоний").brand("форд").hasButtons(true).diameter(21).createCar());
+        cars.add(new CarBuilder().bodyColor("жовтий").brand("форд").hasButtons(false).diameter(9).createCar());
+        cars.add(new CarBuilder().bodyColor("червоний").brand("форд").hasButtons(false).diameter(18).createCar());
+        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).diameter(23).createCar());
+        cars.add(new CarBuilder().bodyColor("фіолетовий").brand("форд").hasButtons(true).diameter(16).createCar());
     }
 
     private void show(List<Car> cars) {
         for (Car car : cars) {
             System.out.println(car.toString());
         }
+    }
+
+    private int scanDiameter() {
+        System.out.println("Введіть діаметр\n");
+        return scanner.nextInt();
     }
 
     private void returnBackToMenu() {
@@ -88,6 +91,15 @@ public class Logic {
                 System.out.println("Неправильний ввід\n");
                 returnBackToMenu();
         }
+    }
+
+    private List<Car> changeCars(int diameter) {
+        for (Car car : cars) {
+            if (car.getDiameterWheel() < diameter) {
+                car.changeDiameterWheel(1 + random.nextInt(50));
+            }
+        }
+        return cars;
     }
 
     private List<Car> searchCarWithWheelDiameter() {
@@ -127,18 +139,5 @@ public class Logic {
             }
         }
         return cars;
-    }
-
-    public void add() {
-        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).diameter(10).createCar());
-        cars.add(new CarBuilder().bodyColor("червоний").brand("форд").hasButtons(false).createCar());
-        cars.add(new CarBuilder().bodyColor("фіалетовий").brand("форд").hasButtons(true).createCar());
-        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(false).diameter(11).createCar());
-        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).createCar());
-        cars.add(new CarBuilder().bodyColor("червоний").brand("форд").hasButtons(true).diameter(21).createCar());
-        cars.add(new CarBuilder().bodyColor("жовтий").brand("форд").hasButtons(false).diameter(9).createCar());
-        cars.add(new CarBuilder().bodyColor("червоний").brand("форд").hasButtons(false).diameter(18).createCar());
-        cars.add(new CarBuilder().bodyColor("зелений").brand("форд").hasButtons(true).diameter(23).createCar());
-        cars.add(new CarBuilder().bodyColor("фіолетовий").brand("форд").hasButtons(true).diameter(16).createCar());
     }
 }
