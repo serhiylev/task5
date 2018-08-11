@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Logic {
-    private static List<Car> cars = new ArrayList<>();
+    private List<Car> cars = new ArrayList<>();
     private Scanner scanner = new Scanner(System.in);
     private Random random = new Random();
 
