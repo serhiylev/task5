@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Wheel {//колесо
+class Wheel {//колесо
     private int diameter = 0;
     private String  type;
 

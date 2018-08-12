@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Body {//кузов
+class Body {//кузов
     private String bodyColor;
 
     Body() {

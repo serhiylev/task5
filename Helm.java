@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Helm {//кермо
+class Helm {//кермо
     private boolean hasButtons;
 
     Helm() {

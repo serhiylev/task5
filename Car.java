@@ -6,12 +6,12 @@ class Car implements Comparable<Car> {
     private Body body = new Body();
     private Wheel wheel = new Wheel();
 
-    public Car(String brand, boolean hasButtons, String bodyColor, int diameter, String type) {
+    Car(String brand, boolean hasButtons, String bodyColor, int diameter, String type) {
         this.brand = brand;
         wheel.setType(type);
         helm.setHasButtons(hasButtons);
         body.setBodyColor(bodyColor);
-        wheel.setDiameter(diameter); ;
+        wheel.setDiameter(diameter);
     }
 
     @Override

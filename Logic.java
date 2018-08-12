@@ -1,11 +1,11 @@
 import java.util.*;
 
-public class Logic {
-    private List<Car> cars;
-    private LinkedHashSet<Car> carSet;
-    private LinkedHashSet<Car> sortCarSet = new LinkedHashSet<>();
-    private Scanner scanner = new Scanner(System.in);
-    private Random random = new Random();
+class Logic {
+    private final List<Car> cars;
+    private final LinkedHashSet<Car> carSet;
+    private final LinkedHashSet<Car> sortCarSet = new LinkedHashSet<>();
+    private final Scanner scanner = new Scanner(System.in);
+    private final Random random = new Random();
 
     Logic(List<Car> cars, Set<Car> carSet) {
         this.cars = cars;
@@ -108,12 +108,12 @@ public class Logic {
         String color = scanner.next();
         if (color.equals("зелений") || color.equals("червоний") || color.equals("жовтий") || color.equals("фіолетовий")) {
             System.out.println("Введіть діаметр колеса\n");
-            int diametr = scanner.nextInt();
+            int diameter = scanner.nextInt();
             System.out.println("Вкажіть новий тип шити \n(літня/зимова/всесезонна)\n");
             String type = newType();
             for (Car car : cars) {
                 if (car.getBodyColor().equals(color)) {
-                    if (car.getDiameterWheel() == diametr) {
+                    if (car.getDiameterWheel() == diameter) {
                         car.setTypeWheel(type);
                     }
                 }
@@ -293,7 +293,6 @@ public class Logic {
     }
 
     private List<Car> searchCarWithRedBodyColorAndChangeHelm() {
-        List<Car> sortCars = new ArrayList<>();
         for (Car car : cars) {
             if (car.getBodyColor().equals("червоний")) {
                 car.changeHelm();
