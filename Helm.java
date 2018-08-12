@@ -1,7 +1,23 @@
+import java.util.Objects;
+
 public class Helm {//кермо
     private boolean hasButtons;
 
     Helm() {
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Helm helm = (Helm) o;
+        return hasButtons == helm.hasButtons;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(hasButtons);
     }
 
     public void change() {
