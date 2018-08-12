@@ -135,7 +135,6 @@ public class Logic {
         }
     }
 
-
     private void checkTypeWheel() {
         System.out.println("Введіть тип шини\n(літня/зимова/всесезонна)\n");
         String type = scanner.next();
