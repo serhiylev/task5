@@ -183,7 +183,13 @@ class Logic {
 
     private void newShow(Set<Car> carSet) {
         for (Car car : carSet) {
-            System.out.println(car.toString());
+            System.out.println(car.showCar(p -> "Car{" +
+                    "brand='" + p.getBrand() + '\'' +
+                    ", hasButtons=" + p.getHelmHasButtons() +
+                    ", bodyColor='" + p.getBodyColor() + '\'' +
+                    ", diameter=" + p.getDiameterWheel() +
+                    ", typeWheel=" + p.getTypeWheel() +
+                    '}'));
         }
     }
 
@@ -224,7 +230,13 @@ class Logic {
 
     private void show(List<Car> cars) {
         for (Car car : cars) {
-            System.out.println(car.toString());
+            System.out.println(car.showCar(p -> "Car{" +
+                    "brand='" + p.getBrand() + '\'' +
+                    ", hasButtons=" + p.getHelmHasButtons() +
+                    ", bodyColor='" + p.getBodyColor() + '\'' +
+                    ", diameter=" + p.getDiameterWheel() +
+                    ", typeWheel=" + p.getTypeWheel() +
+                    '}'));
         }
     }
 

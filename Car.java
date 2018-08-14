@@ -1,10 +1,15 @@
 import java.util.Objects;
+import java.util.function.Function;
 
 class Car implements Comparable<Car> {
     private String brand;//марка
     private Helm helm = new Helm();
     private Body body = new Body();
     private Wheel wheel = new Wheel();
+
+    public String getBrand() {
+        return brand;
+    }
 
     Car(String brand, boolean hasButtons, String bodyColor, int diameter, String type) {
         this.brand = brand;
@@ -57,15 +62,8 @@ class Car implements Comparable<Car> {
         return wheel.getDiameter();
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "brand='" + brand + '\'' +
-                ", hasButtons=" + helm.getHasButtons() +
-                ", bodyColor='" + body.getBodyColor() + '\'' +
-                ", diameter=" + wheel.getDiameter() +
-                ", typeWheel=" + wheel.getType() +
-                '}';
+    String showCar(Function<Car, String> function) {
+        return function.apply(this);
     }
 
     @Override
