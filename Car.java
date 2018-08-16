@@ -2,10 +2,10 @@ import java.util.Objects;
 import java.util.function.Function;
 
 class Car implements Comparable<Car> {
-    private String brand;//марка
-    private Helm helm = new Helm();
-    private Body body = new Body();
-    private Wheel wheel = new Wheel();
+    private final String brand;//марка
+    private final Helm helm = new Helm();
+    private final Body body = new Body();
+    private final Wheel wheel = new Wheel();
 
     public String getBrand() {
         return brand;

@@ -1,6 +1,6 @@
 import java.util.function.Predicate;
 
-public class CarPredicates {
+class CarPredicates {
     public static Predicate<Car> carWithWheelDiameter() {
         return car -> car.getDiameterWheel() != 0;
     }

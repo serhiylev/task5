@@ -10,6 +10,7 @@ class Main {
         List<Car> cars = new ArrayList<>();
         Set<Car> carSet = new LinkedHashSet<>();
         Logic logic = new Logic(cars,carSet);
+        logic.getCars();
         logic.start();
     }
 }

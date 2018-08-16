@@ -7,7 +7,7 @@ class Logic {
     private final LinkedHashSet<Car> carSet;
     private final LinkedHashSet<Car> sortCarSet = new LinkedHashSet<>();
     private final Scanner scanner = new Scanner(System.in);
-    private Random random = new Random();
+    private final Random random = new Random();
 
             Logic(List < Car > cars, Set < Car > carSet) {
         this.cars =cars;
@@ -27,7 +27,6 @@ class Logic {
     }
 
     private void scan() {
-
         switch (scanner.nextInt()) {
             case 1:
                 show(searchCarWithWheelDiameter());
