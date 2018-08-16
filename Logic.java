@@ -1,19 +1,20 @@
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 class Logic {
     private final List<Car> cars;
     private final LinkedHashSet<Car> carSet;
     private final LinkedHashSet<Car> sortCarSet = new LinkedHashSet<>();
     private final Scanner scanner = new Scanner(System.in);
-    private final Random random = new Random();
+    private Random random = new Random();
 
-    Logic(List<Car> cars, Set<Car> carSet) {
-        this.cars = cars;
-        this.carSet = (LinkedHashSet<Car>) carSet;
+            Logic(List < Car > cars, Set < Car > carSet) {
+        this.cars =cars;
+        this.carSet =(LinkedHashSet<Car>)carSet;
     }
 
     void start() {
-        getCars();
         System.out.println("Введіть число від 1 до 6 \n" +
                 "1) Знайти машини, які мають введений діаметр коліс.\n" +
                 "2) Знайти машини, які мають введений діаметр коліс та колір кузова.\n" +
@@ -45,7 +46,6 @@ class Logic {
                 returnBackToMenu();
                 break;
             case 5:
-                //Замінити усі машини, які мають колеса діаметром менші за введене значення, на інші машини(на машини з рандомним діаметром коліс).
                 show(changeCars(scanDiameter()));
                 returnBackToMenu();
                 break;
@@ -207,14 +207,9 @@ class Logic {
     }
 
     private void removeCars(int firstNumber, int secondNumber) {
-        for (Car car : carSet) {
-            if (car.getDiameterWheel() >= firstNumber && car.getDiameterWheel() <= secondNumber) {
-                carSet.remove(car);
-            }
-        }
+        carSet.removeIf(CarPredicates.removeCars(firstNumber, secondNumber));
     }
-
-    private void getCars() {
+    void getCars() {
         cars.add(new CarService().bodyColor("зелений").brand("форд").hasButtons(true).diameter(10).type("літня").createCar());
         cars.add(new CarService().bodyColor("червоний").brand("форд").hasButtons(false).type("всесезонна").createCar());
         cars.add(new CarService().bodyColor("фіолетовий").brand("форд").hasButtons(true).type("літня").createCar());
@@ -276,49 +271,30 @@ class Logic {
     }
 
     private List<Car> changeCars(int diameter) {
-        for (Car car : cars) {
-            if (car.getDiameterWheel() < diameter) {
-                car.changeDiameterWheel(1 + random.nextInt(50));
-            }
-        }
+        cars.stream().filter(CarPredicates.carWithDiameterSmallerThan(diameter)).forEach(car ->
+                car.changeDiameterWheel(1 + random.nextInt(50)));
         return cars;
     }
 
     private List<Car> searchCarWithWheelDiameter() {
-        List<Car> sortCars = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.getDiameterWheel() != 0) {
-                sortCars.add(car);
-            }
-        }
-
-        return sortCars;
+        return filterCars(CarPredicates.carWithWheelDiameter());
     }
 
     private List<Car> searchCarWithWheelDiameterAndBodyColor() {
-        for (int i = 0; i < searchCarWithWheelDiameter().size(); i++) {
-            if (cars.get(i).getBodyColor() != null) {
-                searchCarWithWheelDiameter().remove(i);
-            }
-        }
-        return searchCarWithWheelDiameter();
+        return searchCarWithWheelDiameter().stream().filter(CarPredicates.carWithBodyColor()).collect(Collectors.toList());
     }
 
     private List<Car> searchCarWithRedBodyColorAndChangeHelm() {
-        for (Car car : cars) {
-            if (car.getBodyColor().equals("червоний")) {
-                car.changeHelm();
-            }
-        }
+          cars.stream().filter(CarPredicates.carWithRedBodyColor()).forEach(Car::changeHelm);
         return cars;
     }
 
     private List<Car> changeWheelDiameter() {
-        for (Car car : cars) {
-            if (car.getHelmHasButtons()) {
-                car.changeDiameterWheel(car.getDiameterWheel() * 2);
-            }
-        }
+        cars.stream().filter(CarPredicates.hasButtons()).forEach(car->car.changeDiameterWheel(car.getDiameterWheel()*2));
         return cars;
+    }
+
+    private List<Car> filterCars(Predicate<Car> predicate) {
+        return cars.stream().filter(predicate).collect(Collectors.toList());
     }
 }
